@@ -10,6 +10,6 @@ public class DesktopLauncher {
 		Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
 		config.setForegroundFPS(60);
 		config.setTitle("ninelives");
-		new Lwjgl3Application(new MyGame(), config);
+		new Lwjgl3Application(new SpotObject(), config);
 	}
 }
