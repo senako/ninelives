@@ -1,2 +1,4 @@
-package com.mygdx.game;public class StartScreen {
+package com.mygdx.game;
+
+public class StartScreen {
 }
