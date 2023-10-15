@@ -110,7 +110,7 @@ public class SpotObject implements Screen {
         batch.begin();
         batch.draw(wallpaper, 0, 0);
         batch.draw(cloud, 0, 200);
-        font.draw(batch, "Help us find Kitty's", 95, 420);
+        font.draw(batch, "Help us find Olive's", 95, 420);
         font.draw(batch, " missing items!", 105, 398);
         batch.draw(cat, charPosX, charPosY);
         drawSprites(sprites);

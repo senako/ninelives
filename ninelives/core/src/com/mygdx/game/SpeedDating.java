@@ -40,15 +40,12 @@ public class SpeedDating implements Screen {
     Boolean msg22 = false;
 
     Boolean msg33 = false;
-    private int x;
-    private int y;
 
-    Texture startbtn;
 
     public SpeedDating(Game game) {
         this.game = game;
         batch = new SpriteBatch();
-        nextScreen = new EndScreen(game);
+        nextScreen = new PingPong(game);
         stage = new Stage();
 
         cat1 = new Texture("oliveCat.png");
@@ -62,9 +59,9 @@ public class SpeedDating implements Screen {
         msg3 = new BitmapFont();
 
 
-        cat11 = new SimpleButton(cat1, 50, 0, game);
-        cat22 = new SimpleButton(cat2, 350, 0, game);
-        oliveOlive = new SimpleButton(olive, 650, 0, game);
+        cat11 = new SimpleButton(cat1, 50, 40, game);
+        cat22 = new SimpleButton(cat2, 350, 40, game);
+        oliveOlive = new SimpleButton(olive, 650, 40, game);
 
 
         cat11.addListener(new ClickListener() {
@@ -134,25 +131,25 @@ public class SpeedDating implements Screen {
 
         batch.begin();
 
-            batch.draw(background, 0, 0);
-            batch.draw(cloud, 0, 200);
-            if (startPhase) {
-                font.draw(batch, "Speed Dating! Find your love!", 63, 420);
-                font.draw(batch, "Try not to get your heart broken", 58, 398);
-            }
+        batch.draw(background, 0, 0);
+        batch.draw(cloud, 0, 200);
+        if (startPhase) {
+            font.draw(batch, "Speed Dating! Find your love!", 63, 420);
+            font.draw(batch, "Try not to get your heart broken", 58, 398);
+        }
 
-            if (msg11) {
-                msg1.draw(batch, "It's not true love :(", 95, 420);
-            }
+        if (msg11) {
+            msg1.draw(batch, "It's not true love :(", 95, 420);
+        }
 
-            if (msg22) {
-                msg2.draw(batch, "She dumped you </3", 95, 420);
-            }
+        if (msg22) {
+            msg2.draw(batch, "She dumped you </3", 95, 420);
+        }
 
-            if (msg33) {
-                msg3.draw(batch, "It's true love :3 <3 !!!", 95, 420);
-                startTimer();
-            }
+        if (msg33) {
+            msg3.draw(batch, "It's true love :3 <3 !!!", 95, 420);
+            startTimer();
+        }
 
         batch.end();
 
