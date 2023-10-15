@@ -7,7 +7,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
-public class FirstPuzzleScreen extends ScreenAdapter {
+public class FirstPuzzleScreen implements Screen {
     private Game game;
     Stage stage;
     SpriteBatch batch;
@@ -15,34 +15,26 @@ public class FirstPuzzleScreen extends ScreenAdapter {
 
     public FirstPuzzleScreen(Game game) {
         this.game = game;
-    }
-
-    @Override
-    public void show() {
-        System.out.println("HIIII!!");
-        stage = new Stage();
         batch = new SpriteBatch();
-        Gdx.input.setInputProcessor(stage);
         firstScreen = new Texture("firstScreen.png");
     }
 
     @Override
-    public void render(float delta) {
-        System.out.println("HERE WE ARE!!!");
-        stage.act();
+    public void show() {
+    }
 
+    @Override
+    public void render(float delta) {
 
         batch.begin();
-            batch.draw(firstScreen, 20, 20);
-            System.out.println("Here we are!");
+        batch.draw(firstScreen, 0, 0);
         batch.end();
 
-        stage.draw();
     }
 
     @Override
     public void resize(int width, int height) {
-        stage.getViewport().update(width, height, true);
+
     }
 
     @Override
@@ -63,6 +55,5 @@ public class FirstPuzzleScreen extends ScreenAdapter {
     @Override
     public void dispose() {
         batch.dispose();
-        firstScreen.dispose();
     }
 }
