@@ -23,7 +23,7 @@ public class MyGame extends Game {
 	OrthographicCamera camera;
 
 	@Override
-	public void create () {
+	public void create() {
 		batch = new SpriteBatch();
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
@@ -32,13 +32,14 @@ public class MyGame extends Game {
 	}
 
 	@Override
-	public void render () {
+	public void render() {
 
 		super.render();
 
 	}
 
 	@Override
-	public void dispose () {
+	public void dispose() {
 		batch.dispose();
 	}
+}
