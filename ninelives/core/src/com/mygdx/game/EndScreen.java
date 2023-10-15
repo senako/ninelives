@@ -14,7 +14,7 @@ public class EndScreen implements Screen {
     public EndScreen(Game game) {
         this.game = game;
         batch = new SpriteBatch();
-        firstScreen = new Texture("firstScreen.png");
+        firstScreen = new Texture("endScreen.png");
     }
 
     @Override

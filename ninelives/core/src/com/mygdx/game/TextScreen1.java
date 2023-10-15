@@ -31,7 +31,7 @@ public class TextScreen1 implements Screen {
         batch = new SpriteBatch();
         nextScreen = new EndScreen(game);
 
-        nextButton = new Texture("startButton.png"); //REPLACE WITH NEXT BUTTON
+        nextButton = new Texture("nextButton.png");
         SimpleButton nxtButton = new SimpleButton(nextButton, 50, 50, game);
         text = new BitmapFont();
         nxtButton.addListener(new ClickListener() {
@@ -43,7 +43,7 @@ public class TextScreen1 implements Screen {
 
         stage.addActor(nxtButton);
 
-        backgroundImg = new Texture("startScreen.png"); //REPLACE IMAGE WITH BACKGROUND !!
+        backgroundImg = new Texture("textfile_background.avif"); //REPLACE IMAGE WITH BACKGROUND !!
     }
     @Override
     public void show() {

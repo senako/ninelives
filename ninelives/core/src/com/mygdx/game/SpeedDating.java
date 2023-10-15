@@ -51,8 +51,8 @@ public class SpeedDating implements Screen {
         nextScreen = new EndScreen(game);
         stage = new Stage();
 
-        cat1 = new Texture("oliveCat.png");
-        cat2 = new Texture("oliveCat.png");
+        cat1 = new Texture("otherCat1.png");
+        cat2 = new Texture("otherCat2.png");
         olive = new Texture("oliveCat.png");
         background = new Texture("heart.jpg");
         cloud = new Texture("cloud.png");
