@@ -30,7 +30,7 @@ public class StartScreen implements Screen {
 
         //making the start button
         startbtn = new Texture("startButton.png");
-        nextScreen = new SpotObject(game);
+        nextScreen = new TextScreen1(game);
         SimpleButton startButton = new SimpleButton(startbtn, 300, 320, game);
 
         startButton.addListener(new ClickListener() {

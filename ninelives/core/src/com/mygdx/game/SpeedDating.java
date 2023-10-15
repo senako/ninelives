@@ -45,11 +45,11 @@ public class SpeedDating implements Screen {
     public SpeedDating(Game game) {
         this.game = game;
         batch = new SpriteBatch();
-        nextScreen = new PingPong(game);
+        nextScreen = new TextScreen4(game);
         stage = new Stage();
 
-        cat1 = new Texture("oliveCat.png");
-        cat2 = new Texture("oliveCat.png");
+        cat1 = new Texture("otherCat1.png");
+        cat2 = new Texture("otherCat2.png");
         olive = new Texture("oliveCat.png");
         background = new Texture("heart.jpg");
         cloud = new Texture("cloud.png");
@@ -67,7 +67,6 @@ public class SpeedDating implements Screen {
         cat11.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                System.out.println("HELLO!!!");
                 msg11 = true;
                 msg22 = false;
                 msg33 = false;

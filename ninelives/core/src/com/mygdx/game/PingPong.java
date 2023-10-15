@@ -37,7 +37,7 @@ public class PingPong implements Screen {
 
     public PingPong(Game game) {
         this.game = game;
-        nextScreen = new EndScreen(game);
+        nextScreen = new TextScreen3(game);
         stage = new Stage();
 
         WIDTH = Gdx.graphics.getWidth();

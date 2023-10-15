@@ -11,7 +11,7 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
-public class TextScreen1 implements Screen {
+public class TextScreen3 implements Screen {
     Texture nextButton;
 
     Texture backgroundImg;
@@ -26,22 +26,22 @@ public class TextScreen1 implements Screen {
 
     BitmapFont text;
 
-    public TextScreen1(final Game game) {
+    public TextScreen3(final Game game) {
         this.game = game;
         stage = new Stage();
         batch = new SpriteBatch();
-        nextScreen = new SpotObject(game);
+        nextScreen = new SpeedDating(game);
 
-        nextButton = new Texture("nextButton.png");
+        nextButton = new Texture("nextButton.png"); //REPLACE WITH NEXT BUTTON
         SimpleButton nxtButton = new SimpleButton(nextButton, 500, 50, game);
         text = new BitmapFont();
         text.setColor(Color.BLACK);
         text.getData().setScale(2,2);
         nxtButton.addListener(new ClickListener() {
-           @Override
-           public void clicked(InputEvent event, float x, float y) {
-               game.setScreen(nextScreen);
-           }
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                game.setScreen(nextScreen);
+            }
         });
 
         Gdx.input.setInputProcessor(stage);
@@ -65,20 +65,21 @@ public class TextScreen1 implements Screen {
 
         batch.begin();
         batch.draw(backgroundImg, 0, 0);
-        text.draw(batch, "Olive, a curious and playful tabby cat, found herself in\n" +
-                " a bit of a predicament one sunny afternoon. Somehow, her \n" +
-                "favorite treats, cherished mouse toy, and dainty food \n" +
-                "bowl had vanished without a trace. Puzzled but undeterred,\n" +
-                " Olive enlisted the help of her loyal friend Pinto, a \n" +
-                "spunky little kitten with boundless energy and a heart \n" +
-                "full of determination. With a sense of purpose, Pinto\n" +
-                " embarked on a mission to search every nook and cranny\n" +
-                " of their cozy home, determined to reunite Olive with her \n" +
-                "beloved possessions. The two feline friends, with tails \n" +
-                "held high and eyes gleaming with hope, set out on an\n" +
-                " adventure that would surely bring them closer \n" +
-                "together and lead them to delightful \n" +
-                "discoveries along the way.", 10, 590);
+        text.draw(batch, "Pinto, ever the adventurous spirit, found himself\n" +
+                "in a rather peculiar situation one afternoon. \n" +
+                "Intrigued by tales of feline speed dating, he decided \n" +
+                "to give it a try, hoping to find a companion who \n" +
+                "matched his boundless enthusiasm. The event featured \n" +
+                "two lovely cats, each with their own charm, but as \n" +
+                "Pinto engaged in conversation, he couldn't help but \n" +
+                "feel that something was missing. None could \n" +
+                "capture his heart like Olive. With her playful \n" +
+                "spirit, intelligence, and shared love for life's \n" +
+                "little wonders, Olive was the one who truly understood \n" +
+                "him. As the event drew to a close, Pinto's eyes met \n" +
+                "Olive's, and in that moment, they knew \n" +
+                "they were meant to be. stronger \n" +
+                "with each passing day.", 10, 590);
         batch.end();
 
         stage.draw();

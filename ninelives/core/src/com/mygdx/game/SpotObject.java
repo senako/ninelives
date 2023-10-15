@@ -34,7 +34,7 @@ public class SpotObject implements Screen {
     public SpotObject(Game game) {
         this.game = game;
         batch = new SpriteBatch();
-        nextScreen = new SpeedDating(game);
+        nextScreen = new TextScreen2(game);
 
         wallpaper = new Texture("wallpaper.png");
         cloud = new Texture("cloud.png");
