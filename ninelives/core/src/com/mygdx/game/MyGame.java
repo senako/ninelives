@@ -42,4 +42,3 @@ public class MyGame extends Game {
 	public void dispose () {
 		batch.dispose();
 	}
-}
