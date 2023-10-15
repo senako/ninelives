@@ -27,14 +27,14 @@ public class SpotObject implements Screen {
     BitmapFont font;
     float charPosX;
     float charPosY;
-    float charSpeed = 50.0f;
+    float charSpeed = 100.0f;
     int count = 0;
     Screen nextScreen;
 
     public SpotObject(Game game) {
         this.game = game;
         batch = new SpriteBatch();
-        nextScreen = new FirstPuzzleScreen(game);
+        nextScreen = new SpeedDating(game);
 
         wallpaper = new Texture("wallpaper.png");
         cloud = new Texture("cloud.png");
@@ -42,7 +42,7 @@ public class SpotObject implements Screen {
         Texture mouseTmp = new Texture("MouseSprite.png");
         Texture treatTmp = new Texture("treat.png");
         Texture bowlTmp = new Texture("bowl.png");
-        Texture tmp = new Texture("tile.png");
+        Texture tmp = new Texture("pintoCat.png");
 
         cat = new Sprite(tmp);
         mouse = new Sprite(mouseTmp);

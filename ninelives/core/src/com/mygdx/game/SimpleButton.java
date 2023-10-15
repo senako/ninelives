@@ -19,7 +19,7 @@ public class SimpleButton extends Actor {
     float posX;
     float posY;
 
-    public SimpleButton(Texture buttonTexture, float x, float y, Game game, Screen screen) {
+    public SimpleButton(Texture buttonTexture, float x, float y, Game game) {
         this.buttonTexture = buttonTexture;
         this.posX = x;
         this.posY = y;
@@ -38,12 +38,15 @@ public class SimpleButton extends Actor {
 
     @Override
     public Actor hit(float x, float y, boolean touchable) {
+        System.out.println("Button Coordinates: " + x + ", " + y);
         // Define the clickable area
         return touchable && x >= 0 && x < getWidth() && y >= 0 && y < getHeight() ? this : null;
+
     }
 
     public boolean isPressed() {
         return isPressed;
     }
+
 
 }
