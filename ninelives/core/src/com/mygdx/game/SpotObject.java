@@ -3,6 +3,7 @@ package com.mygdx.game;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -13,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class SpotObject extends Game {
+public class SpotObject implements Screen {
 
     public Game game;
 
@@ -28,16 +29,16 @@ public class SpotObject extends Game {
     float charPosY;
     float charSpeed = 50.0f;
     int count = 0;
+    Screen nextScreen;
 
-    public SpotObject() {
-    }
-
-    @Override
-    public void create () {
-
+    public SpotObject(Game game) {
+        this.game = game;
         batch = new SpriteBatch();
+        nextScreen = new FirstPuzzleScreen(game);
+
         wallpaper = new Texture("wallpaper.png");
         cloud = new Texture("cloud.png");
+
         Texture mouseTmp = new Texture("MouseSprite.png");
         Texture treatTmp = new Texture("treat.png");
         Texture bowlTmp = new Texture("bowl.png");
@@ -95,12 +96,12 @@ public class SpotObject extends Game {
 
     public void detectEndGame() {
         if (sprites.isEmpty()) {
-            game.setScreen(screen);
+            game.setScreen(nextScreen);
         }
     }
 
     @Override
-    public void render () {
+    public void render (float delta) {
 
         movePlayer();
 
@@ -114,6 +115,33 @@ public class SpotObject extends Game {
         batch.draw(cat, charPosX, charPosY);
         drawSprites(sprites);
         batch.end();
+
+        detectEndGame();
+    }
+
+    @Override
+    public void show() {
+
+    }
+
+    @Override
+    public void resize(int width, int height) {
+
+    }
+
+    @Override
+    public void pause() {
+
+    }
+
+    @Override
+    public void resume() {
+
+    }
+
+    @Override
+    public void hide() {
+
     }
 
     @Override

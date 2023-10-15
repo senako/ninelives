@@ -4,39 +4,46 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
 public class SimpleButton extends Actor {
 
-    private Sprite skin;
+    Texture buttonTexture;
+    boolean isPressed;
+    float posX;
+    float posY;
 
-
-    public SimpleButton(Texture texture, float x, float y, float width, float height) {
-        skin = new Sprite(texture); // your image
-        skin.setPosition(x, y);
-        skin.setSize(width, height);
+    public SimpleButton(Texture buttonTexture, float x, float y, Game game, Screen screen) {
+        this.buttonTexture = buttonTexture;
+        this.posX = x;
+        this.posY = y;
+        setBounds(posX, posY, buttonTexture.getWidth(), buttonTexture.getHeight());
     }
 
-    public void draw(SpriteBatch batch) {
-        skin.draw(batch); // draw the button
+    @Override
+    public void draw(Batch batch, float parentAlpha) {
+        batch.draw(buttonTexture, posX, posY, buttonTexture.getWidth(), buttonTexture.getHeight());
     }
 
-    public void update (SpriteBatch batch, float input_x, float input_y, Game game, Screen screen) {
-        checkIfClicked(input_x, input_y, game, screen);
+    @Override
+    public void act(float delta) {
+
     }
 
-    private void checkIfClicked (float ix, float iy, Game game, Screen screen) {
-        if (ix > skin.getX() && ix < skin.getX() + skin.getWidth()) {
-            if (iy > skin.getY() && iy < skin.getY() + skin.getHeight()) {
-                ((Game) Gdx.app.getApplicationListener()).setScreen((Screen) new FirstPuzzleScreen(game));
-                game.setScreen(screen);
-                System.out.println("Button Pressed!");
-            }
-        }
+    @Override
+    public Actor hit(float x, float y, boolean touchable) {
+        // Define the clickable area
+        return touchable && x >= 0 && x < getWidth() && y >= 0 && y < getHeight() ? this : null;
+    }
+
+    public boolean isPressed() {
+        return isPressed;
     }
 
 }

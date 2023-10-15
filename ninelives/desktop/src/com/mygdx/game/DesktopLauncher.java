@@ -8,10 +8,11 @@ import com.mygdx.game.MyGame;
 public class DesktopLauncher {
 	public static void main (String[] arg) {
 		Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
-		config.setWindowedMode(1600, 900);
+		config.setWindowedMode(800, 600);
 		config.useVsync(true);
 		config.setForegroundFPS(60);
 		config.setTitle("ninelives");
 		new Lwjgl3Application(new MyGame(), config);
 	}
 }
+
