@@ -31,6 +31,8 @@ public class SpeedDating implements Screen {
     Screen nextScreen;
     Stage stage;
 
+    boolean startPhase = true;
+
     Game game;
 
     Boolean msg11 = false;
@@ -46,7 +48,7 @@ public class SpeedDating implements Screen {
     public SpeedDating(Game game) {
         this.game = game;
         batch = new SpriteBatch();
-        nextScreen = new FirstPuzzleScreen(game);
+        nextScreen = new EndScreen(game);
         stage = new Stage();
 
         cat1 = new Texture("oliveCat.png");
@@ -70,21 +72,29 @@ public class SpeedDating implements Screen {
             public void clicked(InputEvent event, float x, float y) {
                 System.out.println("HELLO!!!");
                 msg11 = true;
-                //msg1.draw(batch, "It's not true love :(", 95, 420);
+                msg22 = false;
+                msg33 = false;
+                startPhase = false;
             }
         });
 
         cat22.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
+                msg11 = false;
                 msg22 = true;
+                msg33 = false;
+                startPhase = false;
             }
         });
 
         oliveOlive.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
+                msg11 = false;
+                msg22 = false;
                 msg33 = true;
+                startPhase = false;
             }
         });
 
@@ -97,18 +107,18 @@ public class SpeedDating implements Screen {
     }
 
     public void startTimer() {
-        float delay = 5; // Delay in seconds
+        float delay = 2; // Delay in seconds
 
         // Schedule a task to be executed after the specified delay
         Timer.schedule(new Task() {
             @Override
             public void run() {
                 // Code to be executed after the delay
-                System.out.println("Timer finished!");
+                game.setScreen(nextScreen);
             }
         }, delay);
 
-        game.setScreen(nextScreen);
+
     }
 
     @Override
@@ -118,7 +128,7 @@ public class SpeedDating implements Screen {
 
     @Override
     public void render(float delta) {
-        
+
         Gdx.input.setInputProcessor(stage);
         stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f));
 
@@ -126,23 +136,22 @@ public class SpeedDating implements Screen {
 
             batch.draw(background, 0, 0);
             batch.draw(cloud, 0, 200);
-            font.draw(batch, "Speed Dating! Find your love!", 63, 420);
-            font.draw(batch, "Try not to get your heart broken", 58, 398);
+            if (startPhase) {
+                font.draw(batch, "Speed Dating! Find your love!", 63, 420);
+                font.draw(batch, "Try not to get your heart broken", 58, 398);
+            }
 
             if (msg11) {
                 msg1.draw(batch, "It's not true love :(", 95, 420);
-                font.dispose();
             }
 
             if (msg22) {
                 msg2.draw(batch, "She dumped you </3", 95, 420);
-                font.dispose();
             }
 
             if (msg33) {
-                msg2.draw(batch, "She dumped you </3", 95, 420);
+                msg3.draw(batch, "It's true love :3 <3 !!!", 95, 420);
                 startTimer();
-                font.dispose();
             }
 
         batch.end();
