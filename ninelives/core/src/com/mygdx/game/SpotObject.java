@@ -60,7 +60,7 @@ public class SpotObject implements Screen {
     }
 
     public void spriteCollision(Sprite player, List<Sprite> spriteList) {
-        Rectangle playerRectangle = new Rectangle(charPosX, charPosY, 10, 10);
+        Rectangle playerRectangle = new Rectangle(charPosX, charPosY, 110, 110);
 
         Iterator<Sprite> iterator = spriteList.iterator();
         while (iterator.hasNext()) {
