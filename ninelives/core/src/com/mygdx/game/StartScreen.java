@@ -31,12 +31,11 @@ public class StartScreen implements Screen {
         //making the start button
         startbtn = new Texture("startButton.png");
         nextScreen = new SpotObject(game);
-        SimpleButton startButton = new SimpleButton(startbtn, 200, 200, game, nextScreen);
+        SimpleButton startButton = new SimpleButton(startbtn, 200, 200, game);
 
         startButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                dispose();
                 game.setScreen(nextScreen);
             }
         });
@@ -58,7 +57,6 @@ public class StartScreen implements Screen {
     @Override
     public void render(float delta) {
         Gdx.gl.glClearColor(0, 0, 0, 1);
-        //Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f));
 
