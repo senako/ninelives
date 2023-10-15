@@ -38,7 +38,6 @@ public class SimpleButton extends Actor {
 
     @Override
     public Actor hit(float x, float y, boolean touchable) {
-        System.out.println("Button Coordinates: " + x + ", " + y);
         // Define the clickable area
         return touchable && x >= 0 && x < getWidth() && y >= 0 && y < getHeight() ? this : null;
 
